@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -16,6 +17,47 @@ namespace ObjectsConverter
 {
     public static class Converter
     {
+        public static byte[] ParseIconFromFile(string filePath)
+        {
+            try
+            {
+                var tempDir = Path.GetDirectoryName(filePath);
+                var tempFileName = string.Concat(Path.GetFileNameWithoutExtension(filePath), ".ico");
+                var tempFile = Path.Combine(tempDir, tempFileName);
+                using (var output = File.OpenWrite(tempFile))
+                {
+                    ConvertToIcon(
+                        ResizeImage(Icon.ExtractAssociatedIcon(filePath).ToBitmap(), 256, 256),
+                        output);
+                }
+                var temp = FileToByteArray(tempFile);
+                if (File.Exists(tempFile))
+                {
+                    File.Delete(tempFile);
+                }
+                return temp;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+        public static T ParseJSON<T>(this string value) where T : class
+        {
+            T result;
+
+            try
+            {
+                result = JsonConvert.DeserializeObject<T>(value.Trim());
+            }
+            catch (Exception)
+            {
+                result = default(T);
+            }
+            return result;
+        }
+
+        public static string ToJSON(this object value) => JsonConvert.SerializeObject(value).Trim();
         public static async Task<byte[]> FileToByteArrayAsync(string _sourceFile)
         {
             return await Task.Run(() =>

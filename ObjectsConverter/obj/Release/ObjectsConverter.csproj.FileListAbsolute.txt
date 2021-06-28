@@ -1,0 +1,7 @@
+C:\Users\Administrator\source\repos\ObjectsConverter\ObjectsConverter\bin\Release\ObjectsConverter.dll
+C:\Users\Administrator\source\repos\ObjectsConverter\ObjectsConverter\bin\Release\Newtonsoft.Json.dll
+C:\Users\Administrator\source\repos\ObjectsConverter\ObjectsConverter\bin\Release\Newtonsoft.Json.xml
+C:\Users\Administrator\source\repos\ObjectsConverter\ObjectsConverter\obj\Release\ObjectsConverter.csproj.AssemblyReference.cache
+C:\Users\Administrator\source\repos\ObjectsConverter\ObjectsConverter\obj\Release\ObjectsConverter.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\source\repos\ObjectsConverter\ObjectsConverter\obj\Release\ObjectsConverter.csproj.CopyComplete
+C:\Users\Administrator\source\repos\ObjectsConverter\ObjectsConverter\obj\Release\ObjectsConverter.dll
